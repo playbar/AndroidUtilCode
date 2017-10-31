@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.blankj.androidutilcode">
 
+    <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="25" />
     <!--bar-->
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
 
@@ -50,7 +51,7 @@
         android:name=".UtilsApp"
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/my_app_name"
+        android:label="@string/demo_app"
         android:theme="@style/AppTheme">
         <activity android:name=".main.MainActivity">
             <intent-filter>

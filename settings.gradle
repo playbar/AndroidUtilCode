@@ -1,1 +1,2 @@
 include ':app', ':utilcode', ':subutil'
+include ':androidboost'
