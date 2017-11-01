@@ -59,9 +59,11 @@ public class UtilsApp extends BaseApplication {
                 .setLogHeadSwitch(true)// 设置log头信息开关，默认为开
                 .setLog2FileSwitch(false)// 打印log时是否存到文件的开关，默认关
                 .setDir("")// 当自定义路径为空时，写入应用的/cache/log/目录中
+                .setFilePrefix("")// 当文件前缀为空时，默认为"util"，即写入文件为"util-MM-dd.txt"
                 .setBorderSwitch(true)// 输出日志是否带边框开关，默认开
                 .setConsoleFilter(LogUtils.V)// log的控制台过滤器，和logcat过滤器同理，默认Verbose
-                .setFileFilter(LogUtils.V);// log文件过滤器，和logcat过滤器同理，默认Verbose
+                .setFileFilter(LogUtils.V)// log文件过滤器，和logcat过滤器同理，默认Verbose
+                .setStackDeep(1);// log栈深度，默认为1
         LogUtils.d(config.toString());
     }
 
@@ -70,18 +72,20 @@ public class UtilsApp extends BaseApplication {
     }
 
     private void initAssets() {
-        if (!FileUtils.isFileExists(com.blankj.androidutilcode.Config.getTestApkPath())) {
+        if (!FileUtils.isFileExists(Config.TEST_APK_PATH)) {
             ThreadPoolUtils poolUtils = new ThreadPoolUtils(ThreadPoolUtils.SingleThread, 1);
             poolUtils.execute(new Runnable() {
                 @Override
                 public void run() {
                     try {
-                        FileIOUtils.writeFileFromIS(Config.getTestApkPath(), getAssets().open("test_install"), false);
+                        FileIOUtils.writeFileFromIS(Config.TEST_APK_PATH, getAssets().open("test_install"), false);
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                 }
             });
+        } else {
+            LogUtils.d("test apk existed.");
         }
     }
 }

@@ -20,7 +20,7 @@ import com.blankj.utilcode.util.NetworkUtils;
  */
 public class NetworkActivity extends BaseBackActivity {
 
-    private TextView tvAboutNetwork;
+    TextView tvAboutNetwork;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, NetworkActivity.class);
@@ -41,7 +41,7 @@ public class NetworkActivity extends BaseBackActivity {
     public void initView(Bundle savedInstanceState, View view) {
         getToolBar().setTitle(getString(R.string.demo_network));
 
-        tvAboutNetwork = (TextView) findViewById(R.id.tv_about_network);
+        tvAboutNetwork = findViewById(R.id.tv_about_network);
         findViewById(R.id.btn_open_wireless_settings).setOnClickListener(this);
         findViewById(R.id.btn_set_wifi_enabled).setOnClickListener(this);
         setAboutNetwork();

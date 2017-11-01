@@ -26,7 +26,7 @@ import com.blankj.utilcode.util.ToastUtils;
  */
 public class SnackbarActivity extends BaseBackActivity {
 
-    private View snackBarRootView;
+    View snackBarRootView;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, SnackbarActivity.class);
@@ -141,11 +141,11 @@ public class SnackbarActivity extends BaseBackActivity {
                 break;
 
             case R.id.btn_add_view:
+                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                 SnackbarUtils.with(snackBarRootView)
                         .setBgColor(Color.TRANSPARENT)
                         .setDuration(SnackbarUtils.LENGTH_INDEFINITE)
                         .show();
-                ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
                 SnackbarUtils.addView(R.layout.snackbar_custom, params);
                 break;
 

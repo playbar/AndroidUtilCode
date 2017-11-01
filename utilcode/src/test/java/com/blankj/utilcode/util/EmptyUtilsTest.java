@@ -2,6 +2,8 @@ package com.blankj.utilcode.util;
 
 import android.annotation.TargetApi;
 import android.os.Build;
+import android.support.v4.util.LongSparseArray;
+import android.support.v4.util.SimpleArrayMap;
 import android.util.SparseArray;
 import android.util.SparseBooleanArray;
 import android.util.SparseIntArray;
@@ -15,7 +17,8 @@ import org.robolectric.annotation.Config;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-import static com.google.common.truth.Truth.assertThat;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * <pre>
@@ -26,7 +29,7 @@ import static com.google.common.truth.Truth.assertThat;
  * </pre>
  */
 @RunWith(RobolectricTestRunner.class)
-@Config(manifest = Config.NONE , sdk = 23)
+@Config(manifest = Config.NONE, sdk = 23)
 public class EmptyUtilsTest {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
@@ -37,32 +40,41 @@ public class EmptyUtilsTest {
         int[][] arr = new int[][]{};
         int[] arr1 = null;
         LinkedList<Integer> list = new LinkedList<>();
-        HashMap<String,Integer> map = new HashMap<>();
+        HashMap<String, Integer> map = new HashMap<>();
+        SimpleArrayMap<String, Integer> sam = new SimpleArrayMap<>();
         SparseArray<String> sa = new SparseArray<>();
         SparseBooleanArray sba = new SparseBooleanArray();
         SparseIntArray sia = new SparseIntArray();
         SparseLongArray sla = new SparseLongArray();
+        LongSparseArray<String> lsa = new LongSparseArray<>();
+        android.util.LongSparseArray<String> lsaV4 = new android.util.LongSparseArray<>();
 
-        assertThat(EmptyUtils.isEmpty(string)).isTrue();
-        assertThat(EmptyUtils.isEmpty(string1)).isFalse();
-        assertThat(EmptyUtils.isEmpty(arr)).isTrue();
-        assertThat(EmptyUtils.isEmpty(arr1)).isTrue();
-        assertThat(EmptyUtils.isEmpty(list)).isTrue();
-        assertThat(EmptyUtils.isEmpty(map)).isTrue();
-        assertThat(EmptyUtils.isEmpty(sa)).isTrue();
-        assertThat(EmptyUtils.isEmpty(sba)).isTrue();
-        assertThat(EmptyUtils.isEmpty(sia)).isTrue();
-        assertThat(EmptyUtils.isEmpty(sla)).isTrue();
+        assertTrue(EmptyUtils.isEmpty(string));
+        assertFalse(EmptyUtils.isEmpty(string1));
+        assertTrue(EmptyUtils.isEmpty(arr));
+        assertTrue(EmptyUtils.isEmpty(arr1));
+        assertTrue(EmptyUtils.isEmpty(list));
+        assertTrue(EmptyUtils.isEmpty(map));
+        assertTrue(EmptyUtils.isEmpty(sam));
+        assertTrue(EmptyUtils.isEmpty(sa));
+        assertTrue(EmptyUtils.isEmpty(sba));
+        assertTrue(EmptyUtils.isEmpty(sia));
+        assertTrue(EmptyUtils.isEmpty(sla));
+        assertTrue(EmptyUtils.isEmpty(lsa));
+        assertTrue(EmptyUtils.isEmpty(lsaV4));
 
-        assertThat(!EmptyUtils.isNotEmpty(string)).isTrue();
-        assertThat(!EmptyUtils.isNotEmpty(string1)).isFalse();
-        assertThat(!EmptyUtils.isNotEmpty(arr)).isTrue();
-        assertThat(!EmptyUtils.isNotEmpty(arr1)).isTrue();
-        assertThat(!EmptyUtils.isNotEmpty(list)).isTrue();
-        assertThat(!EmptyUtils.isNotEmpty(map)).isTrue();
-        assertThat(!EmptyUtils.isNotEmpty(sa)).isTrue();
-        assertThat(!EmptyUtils.isNotEmpty(sba)).isTrue();
-        assertThat(!EmptyUtils.isNotEmpty(sia)).isTrue();
-        assertThat(!EmptyUtils.isNotEmpty(sla)).isTrue();
+        assertTrue(!EmptyUtils.isNotEmpty(string));
+        assertFalse(!EmptyUtils.isNotEmpty(string1));
+        assertTrue(!EmptyUtils.isNotEmpty(arr));
+        assertTrue(!EmptyUtils.isNotEmpty(arr1));
+        assertTrue(!EmptyUtils.isNotEmpty(list));
+        assertTrue(!EmptyUtils.isNotEmpty(map));
+        assertTrue(!EmptyUtils.isNotEmpty(sam));
+        assertTrue(!EmptyUtils.isNotEmpty(sa));
+        assertTrue(!EmptyUtils.isNotEmpty(sba));
+        assertTrue(!EmptyUtils.isNotEmpty(sia));
+        assertTrue(!EmptyUtils.isNotEmpty(sla));
+        assertTrue(!EmptyUtils.isNotEmpty(lsa));
+        assertTrue(!EmptyUtils.isNotEmpty(lsaV4));
     }
 }

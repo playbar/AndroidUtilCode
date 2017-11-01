@@ -21,7 +21,6 @@ import com.blankj.utilcode.util.LogUtils;
  *     desc  : Log工具类Demo
  * </pre>
  */
-
 public class LogActivity extends BaseBackActivity {
 
     private static final String TAG = "CMJ";
@@ -57,7 +56,7 @@ public class LogActivity extends BaseBackActivity {
             LogUtils.d("debug");
             LogUtils.i("info");
             LogUtils.w("warn");
-            LogUtils.e("error");
+            LogUtils.e("初始化成功");
             LogUtils.a("assert");
         }
     };
@@ -93,6 +92,7 @@ public class LogActivity extends BaseBackActivity {
     public void initView(Bundle savedInstanceState, View view) {
         getToolBar().setTitle(getString(R.string.demo_log));
 
+        tvAboutLog = findViewById(R.id.tv_about_log);
         findViewById(R.id.btn_toggle_log).setOnClickListener(this);
         findViewById(R.id.btn_toggle_console).setOnClickListener(this);
         findViewById(R.id.btn_toggle_tag).setOnClickListener(this);
@@ -111,7 +111,6 @@ public class LogActivity extends BaseBackActivity {
         findViewById(R.id.btn_log_file).setOnClickListener(this);
         findViewById(R.id.btn_log_json).setOnClickListener(this);
         findViewById(R.id.btn_log_xml).setOnClickListener(this);
-        tvAboutLog = (TextView) findViewById(R.id.tv_about_log);
         updateAbout(0);
     }
 

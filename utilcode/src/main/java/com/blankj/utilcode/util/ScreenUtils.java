@@ -48,6 +48,24 @@ public final class ScreenUtils {
     }
 
     /**
+     * 获取屏幕密度
+     *
+     * @return 屏幕密度
+     */
+    public static float getScreenDensity() {
+        return Utils.getApp().getResources().getDisplayMetrics().density;
+    }
+
+    /**
+     * 获取屏幕密度DPI
+     *
+     * @return 屏幕密度DPI
+     */
+    public static int getScreenDensityDpi() {
+        return Utils.getApp().getResources().getDisplayMetrics().densityDpi;
+    }
+
+    /**
      * 设置屏幕为全屏
      * <p>需在 {@code setContentView} 之前调用</p>
      *
@@ -127,7 +145,7 @@ public final class ScreenUtils {
      * @return Bitmap
      */
     public static Bitmap screenShot(@NonNull final Activity activity) {
-        return screenShot(activity, true);
+        return screenShot(activity, false);
     }
 
     /**

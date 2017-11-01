@@ -1,7 +1,6 @@
 package com.blankj.utilcode.util;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BlurMaskFilter;
@@ -69,7 +68,7 @@ import static android.graphics.BlurMaskFilter.Blur;
  */
 public final class SpanUtils {
 
-    private static final int DEFAULT_COLOR = 0x12000000;
+    private static final int COLOR_DEFAULT = 0xFEFFFFFF;
 
     public static final int ALIGN_BOTTOM   = 0;
     public static final int ALIGN_BASELINE = 1;
@@ -137,7 +136,7 @@ public final class SpanUtils {
     private int spaceSize;
     private int spaceColor;
 
-    private static SpannableStringBuilder mBuilder;
+    private SpannableStringBuilder mBuilder;
 
     private int mType;
     private final int mTypeCharSequence = 0;
@@ -153,12 +152,12 @@ public final class SpanUtils {
 
     private void setDefault() {
         flag = Spanned.SPAN_EXCLUSIVE_EXCLUSIVE;
-        foregroundColor = DEFAULT_COLOR;
-        backgroundColor = DEFAULT_COLOR;
+        foregroundColor = COLOR_DEFAULT;
+        backgroundColor = COLOR_DEFAULT;
         lineHeight = -1;
-        quoteColor = DEFAULT_COLOR;
+        quoteColor = COLOR_DEFAULT;
         first = -1;
-        bulletColor = DEFAULT_COLOR;
+        bulletColor = COLOR_DEFAULT;
         iconMarginBitmap = null;
         iconMarginDrawable = null;
         iconMarginUri = null;
@@ -900,19 +899,19 @@ public final class SpanUtils {
         int start = mBuilder.length();
         mBuilder.append(mText);
         int end = mBuilder.length();
-        if (foregroundColor != DEFAULT_COLOR) {
+        if (foregroundColor != COLOR_DEFAULT) {
             mBuilder.setSpan(new ForegroundColorSpan(foregroundColor), start, end, flag);
         }
-        if (backgroundColor != DEFAULT_COLOR) {
+        if (backgroundColor != COLOR_DEFAULT) {
             mBuilder.setSpan(new BackgroundColorSpan(backgroundColor), start, end, flag);
         }
         if (first != -1) {
             mBuilder.setSpan(new LeadingMarginSpan.Standard(first, rest), start, end, flag);
         }
-        if (quoteColor != DEFAULT_COLOR) {
+        if (quoteColor != COLOR_DEFAULT) {
             mBuilder.setSpan(new CustomQuoteSpan(quoteColor, stripeWidth, quoteGapWidth), start, end, flag);
         }
-        if (bulletColor != DEFAULT_COLOR) {
+        if (bulletColor != COLOR_DEFAULT) {
             mBuilder.setSpan(new CustomBulletSpan(bulletColor, bulletRadius, bulletGapWidth), start, end, flag);
         }
         if (iconMarginGapWidth != -1) {
@@ -921,9 +920,9 @@ public final class SpanUtils {
             } else if (iconMarginDrawable != null) {
                 mBuilder.setSpan(new CustomIconMarginSpan(iconMarginDrawable, iconMarginGapWidth, alignIconMargin), start, end, flag);
             } else if (iconMarginUri != null) {
-                mBuilder.setSpan(new CustomIconMarginSpan(Utils.getApp(), iconMarginUri, iconMarginGapWidth, alignIconMargin), start, end, flag);
+                mBuilder.setSpan(new CustomIconMarginSpan(iconMarginUri, iconMarginGapWidth, alignIconMargin), start, end, flag);
             } else if (iconMarginResourceId != -1) {
-                mBuilder.setSpan(new CustomIconMarginSpan(Utils.getApp(), iconMarginResourceId, iconMarginGapWidth, alignIconMargin), start, end, flag);
+                mBuilder.setSpan(new CustomIconMarginSpan(iconMarginResourceId, iconMarginGapWidth, alignIconMargin), start, end, flag);
             }
         }
         if (fontSize != -1) {
@@ -995,13 +994,13 @@ public final class SpanUtils {
         mBuilder.append("<img>");
         int end = start + 5;
         if (imageBitmap != null) {
-            mBuilder.setSpan(new CustomImageSpan(Utils.getApp(), imageBitmap, alignImage), start, end, flag);
+            mBuilder.setSpan(new CustomImageSpan(imageBitmap, alignImage), start, end, flag);
         } else if (imageDrawable != null) {
             mBuilder.setSpan(new CustomImageSpan(imageDrawable, alignImage), start, end, flag);
         } else if (imageUri != null) {
-            mBuilder.setSpan(new CustomImageSpan(Utils.getApp(), imageUri, alignImage), start, end, flag);
+            mBuilder.setSpan(new CustomImageSpan(imageUri, alignImage), start, end, flag);
         } else if (imageResourceId != -1) {
-            mBuilder.setSpan(new CustomImageSpan(Utils.getApp(), imageResourceId, alignImage), start, end, flag);
+            mBuilder.setSpan(new CustomImageSpan(imageResourceId, alignImage), start, end, flag);
         }
     }
 
@@ -1223,14 +1222,14 @@ public final class SpanUtils {
             mVerticalAlignment = verticalAlignment;
         }
 
-        private CustomIconMarginSpan(final Context context, final Uri uri, final int pad, final int verticalAlignment) {
-            mBitmap = uri2Bitmap(context, uri);
+        private CustomIconMarginSpan(final Uri uri, final int pad, final int verticalAlignment) {
+            mBitmap = uri2Bitmap(uri);
             mPad = pad;
             mVerticalAlignment = verticalAlignment;
         }
 
-        private CustomIconMarginSpan(final Context context, final int resourceId, final int pad, final int verticalAlignment) {
-            mBitmap = resource2Bitmap(context, resourceId);
+        private CustomIconMarginSpan(final int resourceId, final int pad, final int verticalAlignment) {
+            mBitmap = resource2Bitmap(resourceId);
             mPad = pad;
             mVerticalAlignment = verticalAlignment;
         }
@@ -1256,17 +1255,17 @@ public final class SpanUtils {
             return bitmap;
         }
 
-        private Bitmap uri2Bitmap(final Context context, final Uri uri) {
+        private Bitmap uri2Bitmap(final Uri uri) {
             try {
-                return MediaStore.Images.Media.getBitmap(context.getContentResolver(), uri);
+                return MediaStore.Images.Media.getBitmap(Utils.getApp().getContentResolver(), uri);
             } catch (IOException e) {
                 e.printStackTrace();
                 return Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
             }
         }
 
-        private Bitmap resource2Bitmap(final Context context, final int resourceId) {
-            Drawable drawable = ContextCompat.getDrawable(context, resourceId);
+        private Bitmap resource2Bitmap(final int resourceId) {
+            Drawable drawable = ContextCompat.getDrawable(Utils.getApp(), resourceId);
             Canvas canvas = new Canvas();
             Bitmap bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
             canvas.setBitmap(bitmap);
@@ -1279,10 +1278,10 @@ public final class SpanUtils {
             return mBitmap.getWidth() + mPad;
         }
 
-        public void drawLeadingMargin(final Canvas c, final Paint p, int x, final int dir,
-                                      final int top, final int baseline, final int bottom,
-                                      final CharSequence text, final int start, final int end,
-                                      final boolean first, final Layout layout) {
+        public void drawLeadingMargin(Canvas c, Paint p, int x, int dir,
+                                      int top, int baseline, int bottom,
+                                      CharSequence text, int start, int end,
+                                      boolean first, Layout layout) {
             int st = ((Spanned) text).getSpanStart(this);
             int itop = layout.getLineTop(layout.getLineForOffset(st));
 
@@ -1304,7 +1303,8 @@ public final class SpanUtils {
             }
         }
 
-        public void chooseHeight(final CharSequence text, final int start, final int end, final int istartv, final int v, final Paint.FontMetricsInt fm) {
+        public void chooseHeight(CharSequence text, int start, int end,
+                                 int istartv, int v, Paint.FontMetricsInt fm) {
             if (lineHeight == 0) {
                 lineHeight = v - istartv;
             }
@@ -1402,35 +1402,26 @@ public final class SpanUtils {
         private Drawable mDrawable;
         private Uri      mContentUri;
         private int      mResourceId;
-        private Context  mContext;
 
-        private CustomImageSpan(final Context context, final Bitmap b, final int verticalAlignment) {
+        private CustomImageSpan(final Bitmap b, final int verticalAlignment) {
             super(verticalAlignment);
-            mContext = context;
-            mDrawable = context != null
-                    ? new BitmapDrawable(context.getResources(), b)
-                    : new BitmapDrawable(b);
-            int width = mDrawable.getIntrinsicWidth();
-            int height = mDrawable.getIntrinsicHeight();
-            mDrawable.setBounds(0, 0, width > 0 ? width : 0, height > 0 ? height : 0);
+            mDrawable = new BitmapDrawable(Utils.getApp().getResources(), b);
+            mDrawable.setBounds(0, 0, mDrawable.getIntrinsicWidth(), mDrawable.getIntrinsicHeight());
         }
 
         private CustomImageSpan(final Drawable d, final int verticalAlignment) {
             super(verticalAlignment);
             mDrawable = d;
-            mDrawable.setBounds(0, 0, mDrawable.getIntrinsicWidth(),
-                    mDrawable.getIntrinsicHeight());
+            mDrawable.setBounds(0, 0, mDrawable.getIntrinsicWidth(), mDrawable.getIntrinsicHeight());
         }
 
-        private CustomImageSpan(final Context context, final Uri uri, final int verticalAlignment) {
+        private CustomImageSpan(final Uri uri, final int verticalAlignment) {
             super(verticalAlignment);
-            mContext = context;
             mContentUri = uri;
         }
 
-        private CustomImageSpan(final Context context, @DrawableRes final int resourceId, final int verticalAlignment) {
+        private CustomImageSpan(@DrawableRes final int resourceId, final int verticalAlignment) {
             super(verticalAlignment);
-            mContext = context;
             mResourceId = resourceId;
         }
 
@@ -1440,14 +1431,12 @@ public final class SpanUtils {
             if (mDrawable != null) {
                 drawable = mDrawable;
             } else if (mContentUri != null) {
-                Bitmap bitmap = null;
+                Bitmap bitmap;
                 try {
-                    InputStream is = mContext.getContentResolver().openInputStream(
-                            mContentUri);
+                    InputStream is = Utils.getApp().getContentResolver().openInputStream(mContentUri);
                     bitmap = BitmapFactory.decodeStream(is);
-                    drawable = new BitmapDrawable(mContext.getResources(), bitmap);
-                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),
-                            drawable.getIntrinsicHeight());
+                    drawable = new BitmapDrawable(Utils.getApp().getResources(), bitmap);
+                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                     if (is != null) {
                         is.close();
                     }
@@ -1456,9 +1445,8 @@ public final class SpanUtils {
                 }
             } else {
                 try {
-                    drawable = ContextCompat.getDrawable(mContext, mResourceId);
-                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(),
-                            drawable.getIntrinsicHeight());
+                    drawable = ContextCompat.getDrawable(Utils.getApp(), mResourceId);
+                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 } catch (Exception e) {
                     Log.e("sms", "Unable to find resource: " + mResourceId);
                 }

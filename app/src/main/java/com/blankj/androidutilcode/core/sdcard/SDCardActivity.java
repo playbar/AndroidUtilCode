@@ -39,12 +39,11 @@ public class SDCardActivity extends BaseBackActivity {
     public void initView(Bundle savedInstanceState, View view) {
         getToolBar().setTitle(getString(R.string.demo_sdcard));
 
-        TextView tvAboutSdcard = (TextView) findViewById(R.id.tv_about_sdcard);
+        TextView tvAboutSdcard = findViewById(R.id.tv_about_sdcard);
         tvAboutSdcard.setText("isSDCardEnable: " + SDCardUtils.isSDCardEnable()
-                + "\ngetDataPath: " + SDCardUtils.getDataPath()
-                + "\ngetSDCardPath: " + SDCardUtils.getSDCardPath()
-                + "\ngetFreeSpace: " + SDCardUtils.getFreeSpace()
-                + "\ngetSDCardInfo: " + SDCardUtils.getSDCardInfo()
+                + "\ngetSDCardPaths: " + SDCardUtils.getSDCardPaths()
+                + "\ngetInnerSDCardPaths: " + SDCardUtils.getSDCardPaths(true)
+                + "\ngetOuterSDCardPaths: " + SDCardUtils.getSDCardPaths(false)
         );
     }
 
