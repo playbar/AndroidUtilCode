@@ -1,34 +1,31 @@
 #include <boost/program_options.hpp>
 #include <boost/algorithm/string.hpp>
-namespace po = boost::program_options;
 #include <iostream>
 #include <sstream>
 #include "first.h"
+
 using namespace std;
+using namespace boost::program_options;
 
 string hello_boost(int ac, char* av[])
 {
     stringstream out;
-
     try {
+        options_description desc("Allowed options");
+        desc.add_options()("help", "produce help message")("change-world", "print args, but replace 'world' with 'boost'");
 
-        po::options_description desc("Allowed options");
-        desc.add_options()
-            ("help", "produce help message")
-            ("change-world", "print args, but replace 'world' with 'boost'")
-        ;
-
-        po::variables_map vm;
-        po::store(po::parse_command_line(ac, av, desc), vm);
-        po::notify(vm);
+        variables_map vm;
+        store(parse_command_line(ac, av, desc), vm);
+        notify(vm);
 
         if (vm.count("help")) {
             out << desc << "\n";
         }
 
-        if (vm.count("change-world")) {
+        if (vm.count("change-world"))
+        {
             for (int i=1;i<ac;i++) {
-		string arg(av[i]);
+                string arg(av[i]);
                 boost::replace_all( arg, "--change-world", "" );
                 boost::replace_all( arg, "world", "boost" );
                 out << arg << " ";
