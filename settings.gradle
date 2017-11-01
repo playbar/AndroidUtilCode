@@ -1,4 +1,3 @@
 include ':app',
         ':utilcode',
-        ':subutil',
-        ':androidboost'
+        ':subutil'
