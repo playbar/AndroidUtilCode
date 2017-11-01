@@ -13,6 +13,8 @@ public class HelloBoost extends Activity
     {
         super.onCreate(savedInstanceState);
 
+        testBoostArray();
+
         /* Create a TextView and set its content.
          * the text is retrieved by calling a native
          * function.
@@ -27,6 +29,8 @@ public class HelloBoost extends Activity
      * with this application.
      */
     public native String  stringFromJNI();
+
+    public native void testBoostArray();
 
     /* This is another native method declaration that is *not*
      * implemented by 'hello-boost'. This is simply to show that

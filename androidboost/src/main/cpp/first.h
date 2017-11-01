@@ -12,6 +12,7 @@ std::string hello_boost(int ac, char *av[]);
 
 JNIEXPORT jstring JNICALL Java_com_boost_test_HelloBoost_stringFromJNI(JNIEnv* env, jobject thiz );
 
+JNIEXPORT void JNICALL Java_com_boost_test_HelloBoost_testBoostArray(JNIEnv* env, jobject thiz );
 
 #ifdef __cplusplus
 }
