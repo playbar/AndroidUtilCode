@@ -1,2 +1,4 @@
-include ':app', ':utilcode', ':subutil'
-include ':androidboost'
+include ':app',
+        ':utilcode',
+        ':subutil'
+        ':androidboost'
