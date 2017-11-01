@@ -2,8 +2,20 @@
 #define __FIRST_H__
 
 #include <string>
+#include <jni.h>
 
-std::string hello_boost(int ac, char* av[]);
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+std::string hello_boost(int ac, char *av[]);
+
+JNIEXPORT jstring JNICALL Java_com_boost_test_HelloBoost_stringFromJNI(JNIEnv* env, jobject thiz );
+
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 
