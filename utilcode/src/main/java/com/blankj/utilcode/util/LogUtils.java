@@ -1,5 +1,8 @@
 package com.blankj.utilcode.util;
 
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Environment;
 import android.support.annotation.IntDef;
 import android.support.annotation.IntRange;
@@ -22,8 +25,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Formatter;
 import java.util.Locale;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Source;
@@ -37,7 +43,7 @@ import javax.xml.transform.stream.StreamSource;
  *     author: Blankj
  *     blog  : http://blankj.com
  *     time  : 2016/09/21
- *     desc  : Log相关工具类
+ *     desc  : Log 相关工具类
  * </pre>
  */
 public final class LogUtils {
@@ -61,19 +67,19 @@ public final class LogUtils {
     private static final int XML  = 0x30;
 
     private static ExecutorService sExecutor;
-    private static String          sDefaultDir;// log默认存储目录
-    private static String          sDir;       // log存储目录
-    private static String  sFilePrefix        = "util";// log文件前缀
-    private static boolean sLogSwitch         = true;  // log总开关，默认开
-    private static boolean sLog2ConsoleSwitch = true;  // logcat是否打印，默认打印
-    private static String  sGlobalTag         = null;  // log标签
-    private static boolean sTagIsSpace        = true;  // log标签是否为空白
-    private static boolean sLogHeadSwitch     = true;  // log头部开关，默认开
-    private static boolean sLog2FileSwitch    = false; // log写入文件开关，默认关
-    private static boolean sLogBorderSwitch   = true;  // log边框开关，默认开
-    private static int     sConsoleFilter     = V;     // log控制台过滤器
-    private static int     sFileFilter        = V;     // log文件过滤器
-    private static int     sStackDeep         = 1;     // log栈深度
+    private static String          sDefaultDir;// log 默认存储目录
+    private static String          sDir;       // log 存储目录
+    private static String  sFilePrefix        = "util";// log 文件前缀
+    private static boolean sLogSwitch         = true;  // log 总开关，默认开
+    private static boolean sLog2ConsoleSwitch = true;  // logcat 是否打印，默认打印
+    private static String  sGlobalTag         = null;  // log 标签
+    private static boolean sTagIsSpace        = true;  // log 标签是否为空白
+    private static boolean sLogHeadSwitch     = true;  // log 头部开关，默认开
+    private static boolean sLog2FileSwitch    = false; // log 写入文件开关，默认关
+    private static boolean sLogBorderSwitch   = true;  // log 边框开关，默认开
+    private static int     sConsoleFilter     = V;     // log 控制台过滤器
+    private static int     sFileFilter        = V;     // log 文件过滤器
+    private static int     sStackDeep         = 1;     // log 栈深度
 
     private static final String FILE_SEP      = System.getProperty("file.separator");
     private static final String LINE_SEP      = System.getProperty("line.separator");
@@ -83,7 +89,6 @@ public final class LogUtils {
     private static final String BOTTOM_BORDER = "╚═══════════════════════════════════════════════════════════════════════════════════════════════════";
     private static final int    MAX_LEN       = 4000;
     private static final Format FORMAT        = new SimpleDateFormat("MM-dd HH:mm:ss.SSS ", Locale.getDefault());
-    private static final String NULL_TIPS     = "Log with null object.";
     private static final String NULL          = "null";
     private static final String ARGS          = "args";
     private static final Config CONFIG        = new Config();
@@ -96,100 +101,100 @@ public final class LogUtils {
         return CONFIG;
     }
 
-    public static void v(final Object contents) {
+    public static void v(final Object... contents) {
         log(V, sGlobalTag, contents);
     }
 
-    public static void v(final String tag, final Object content, final Object... contents) {
-        log(V, tag, content, contents);
+    public static void vTag(final String tag, final Object... contents) {
+        log(V, tag, contents);
     }
 
-    public static void d(final Object contents) {
+    public static void d(final Object... contents) {
         log(D, sGlobalTag, contents);
     }
 
-    public static void d(final String tag, final Object content, final Object... contents) {
-        log(D, tag, content, contents);
+    public static void dTag(final String tag, final Object... contents) {
+        log(D, tag, contents);
     }
 
-    public static void i(final Object contents) {
+    public static void i(final Object... contents) {
         log(I, sGlobalTag, contents);
     }
 
-    public static void i(final String tag, final Object content, final Object... contents) {
-        log(I, tag, content, contents);
+    public static void iTag(final String tag, final Object... contents) {
+        log(I, tag, contents);
     }
 
-    public static void w(final Object contents) {
+    public static void w(final Object... contents) {
         log(W, sGlobalTag, contents);
     }
 
-    public static void w(final String tag, final Object content, final Object... contents) {
-        log(W, tag, content, contents);
+    public static void wTag(final String tag, final Object... contents) {
+        log(W, tag, contents);
     }
 
-    public static void e(final Object contents) {
+    public static void e(final Object... contents) {
         log(E, sGlobalTag, contents);
     }
 
-    public static void e(final String tag, final Object content, final Object... contents) {
-        log(E, tag, content, contents);
+    public static void eTag(final String tag, final Object... contents) {
+        log(E, tag, contents);
     }
 
-    public static void a(final Object contents) {
+    public static void a(final Object... contents) {
         log(A, sGlobalTag, contents);
     }
 
-    public static void a(final String tag, final Object content, final Object... contents) {
-        log(A, tag, content, contents);
+    public static void aTag(final String tag, final Object... contents) {
+        log(A, tag, contents);
     }
 
-    public static void file(final Object contents) {
-        log(FILE | D, sGlobalTag, contents);
+    public static void file(final Object content) {
+        log(FILE | D, sGlobalTag, content);
     }
 
-    public static void file(@TYPE final int type, final Object contents) {
-        log(FILE | type, sGlobalTag, contents);
+    public static void file(@TYPE final int type, final Object content) {
+        log(FILE | type, sGlobalTag, content);
     }
 
-    public static void file(final String tag, final Object contents) {
-        log(FILE | D, tag, contents);
+    public static void file(final String tag, final Object content) {
+        log(FILE | D, tag, content);
     }
 
-    public static void file(@TYPE final int type, final String tag, final Object contents) {
-        log(FILE | type, tag, contents);
+    public static void file(@TYPE final int type, final String tag, final Object content) {
+        log(FILE | type, tag, content);
     }
 
-    public static void json(final String contents) {
-        log(JSON | D, sGlobalTag, contents);
+    public static void json(final String content) {
+        log(JSON | D, sGlobalTag, content);
     }
 
-    public static void json(@TYPE final int type, final String contents) {
-        log(JSON | type, sGlobalTag, contents);
+    public static void json(@TYPE final int type, final String content) {
+        log(JSON | type, sGlobalTag, content);
     }
 
-    public static void json(final String tag, final String contents) {
-        log(JSON | D, tag, contents);
+    public static void json(final String tag, final String content) {
+        log(JSON | D, tag, content);
     }
 
-    public static void json(@TYPE final int type, final String tag, final String contents) {
-        log(JSON | type, tag, contents);
+    public static void json(@TYPE final int type, final String tag, final String content) {
+        log(JSON | type, tag, content);
     }
 
-    public static void xml(final String contents) {
-        log(XML | D, sGlobalTag, contents);
+    public static void xml(final String content) {
+        log(XML | D, sGlobalTag, content);
     }
 
-    public static void xml(@TYPE final int type, final String contents) {
-        log(XML | type, sGlobalTag, contents);
+    public static void xml(@TYPE final int type, final String content) {
+        log(XML | type, sGlobalTag, content);
     }
 
-    public static void xml(final String tag, final String contents) {
-        log(XML | D, tag, contents);
+    public static void xml(final String tag, final String content) {
+        log(XML | D, tag, content);
     }
 
-    public static void xml(@TYPE final int type, final String tag, final String contents) {
-        log(XML | type, tag, contents);
+    public static void xml(@TYPE final int type, final String tag, final String content) {
+        log(XML | type, tag, content);
     }
 
     private static void log(final int type, final String tag, final Object... contents) {
@@ -265,11 +270,11 @@ public final class LogUtils {
     }
 
     private static String processBody(final int type, final Object... contents) {
-        String body = NULL_TIPS;
+        String body = NULL;
         if (contents != null) {
             if (contents.length == 1) {
                 Object object = contents[0];
-                body = object == null ? NULL : object.toString();
+                if (object != null) body = object.toString();
                 if (type == JSON) {
                     body = formatJson(body);
                 } else if (type == XML) {
@@ -321,7 +326,7 @@ public final class LogUtils {
         return xml;
     }
 
-    private static void print2Console(final int type, final String tag, final String[] head, String msg) {
+    private static void print2Console(final int type, final String tag, final String[] head, final String msg) {
         printBorder(type, tag, true);
         printHead(type, tag, head);
         printMsg(type, tag, msg);
@@ -390,31 +395,11 @@ public final class LogUtils {
                 .append(msg)
                 .append(LINE_SEP);
         final String content = sb.toString();
-        if (sExecutor == null) {
-            sExecutor = Executors.newSingleThreadExecutor();
+        if (input2File(content, fullPath)) {
+            Log.d(tag, "log to " + fullPath + " success!");
+        } else {
+            Log.e(tag, "log to " + fullPath + " failed!");
         }
-        sExecutor.execute(new Runnable() {
-            @Override
-            public void run() {
-                BufferedWriter bw = null;
-                try {
-                    bw = new BufferedWriter(new FileWriter(fullPath, true));
-                    bw.write(content);
-                    Log.d(tag, "log to " + fullPath + " success!");
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    Log.e(tag, "log to " + fullPath + " failed!");
-                } finally {
-                    try {
-                        if (bw != null) {
-                            bw.close();
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
     }
 
     private static boolean createOrExistsFile(final String filePath) {
@@ -422,11 +407,36 @@ public final class LogUtils {
         if (file.exists()) return file.isFile();
         if (!createOrExistsDir(file.getParentFile())) return false;
         try {
-            return file.createNewFile();
+            boolean isCreate = file.createNewFile();
+            if (isCreate) printDeviceInfo(filePath);
+            return isCreate;
         } catch (IOException e) {
             e.printStackTrace();
             return false;
         }
+    }
+
+    private static void printDeviceInfo(final String filePath) {
+        String versionName = "";
+        int versionCode = 0;
+        try {
+            PackageInfo pi = Utils.getApp().getPackageManager().getPackageInfo(Utils.getApp().getPackageName(), 0);
+            if (pi != null) {
+                versionName = pi.versionName;
+                versionCode = pi.versionCode;
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        final String head = "************* Log Head ****************" +
+                "\nDevice Manufacturer: " + Build.MANUFACTURER +// 设备厂商
+                "\nDevice Model       : " + Build.MODEL +// 设备型号
+                "\nAndroid Version    : " + Build.VERSION.RELEASE +// 系统版本
+                "\nAndroid SDK        : " + Build.VERSION.SDK_INT +// SDK 版本
+                "\nApp VersionName    : " + versionName +
+                "\nApp VersionCode    : " + versionCode +
+                "\n************* Log Head ****************\n\n";
+        input2File(head, filePath);
     }
 
     private static boolean createOrExistsDir(final File file) {
@@ -441,6 +451,42 @@ public final class LogUtils {
             }
         }
         return true;
+    }
+
+    private static boolean input2File(final String input, final String filePath) {
+        if (sExecutor == null) {
+            sExecutor = Executors.newSingleThreadExecutor();
+        }
+        Future<Boolean> submit = sExecutor.submit(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                BufferedWriter bw = null;
+                try {
+                    bw = new BufferedWriter(new FileWriter(filePath, true));
+                    bw.write(input);
+                    return true;
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return false;
+                } finally {
+                    try {
+                        if (bw != null) {
+                            bw.close();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+        try {
+            return submit.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public static class Config {

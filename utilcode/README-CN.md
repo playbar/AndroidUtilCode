@@ -1,8 +1,8 @@
 ## Download
 
 Gradle:
-``` groovy
-compile 'com.blankj:utilcode:1.9.6'
+```groovy
+compile 'com.blankj:utilcode:1.9.10'
 ```
 
 
@@ -25,7 +25,7 @@ Utils.init(application);
 
 ## APIs
 
-* ### Activity相关→[ActivityUtils.java][activity.java]→[Demo][activity.demo]
+* ### Activity 相关 -> [ActivityUtils.java][activity.java] -> [Demo][activity.demo]
 ```
 isActivityExists                 : 判断Activity是否存在
 startActivity                    : 启动Activity
@@ -38,13 +38,13 @@ isActivityExistsInStack          : 判断Activity是否存在栈中
 finishActivity                   : 结束Activity
 finishToActivity                 : 结束到指定Activity
 finishOtherActivitiesExceptNewest: 结束除最新之外的同类型Activity
-finishAllActivities              : 结束所有activity
+finishAllActivities              : 结束所有Activity
 ```
 
-* ### App相关→[AppUtils.java][app.java]→[Demo][app.demo]
+* ### App 相关 -> [AppUtils.java][app.java] -> [Demo][app.demo]
 ```
 isInstallApp         : 判断App是否安装
-installApp           : 安装App（支持7.0）
+installApp           : 安装App（支持8.0）
 installAppSilent     : 静默安装App
 uninstallApp         : 卸载App
 uninstallAppSilent   : 静默卸载App
@@ -69,7 +69,7 @@ getAppsInfo          : 获取所有已安装App信息
 cleanAppData         : 清除App所有数据
 ```
 
-* ### 栏相关→[BarUtils.java][bar.java]→[Demo][bar.demo]
+* ### 栏相关 -> [BarUtils.java][bar.java] -> [Demo][bar.demo]
 ```
 getStatusBarHeight                   : 获取状态栏高度(px)
 addMarginTopEqualStatusBarHeight     : 为view增加MarginTop为状态栏高度
@@ -85,7 +85,7 @@ getNavBarHeight                      : 获取导航栏高度
 hideNavBar                           : 隐藏导航栏
 ```
 
-* ### 缓存相关→[CacheUtils.java][cache.java]→[Test][cache.test]
+* ### 缓存相关 -> [CacheUtils.java][cache.java] -> [Test][cache.test]
 ```
 getInstance    : 获取缓存实例
 put            : 缓存中写入数据
@@ -103,7 +103,7 @@ remove         : 根据键值移除缓存
 clear          : 清除所有缓存
 ```
 
-* ### 清除相关→[CleanUtils.java][clean.java]→[Demo][clean.demo]
+* ### 清除相关 -> [CleanUtils.java][clean.java] -> [Demo][clean.demo]
 ```
 cleanInternalCache   : 清除内部缓存
 cleanInternalFiles   : 清除内部文件
@@ -114,13 +114,13 @@ cleanExternalCache   : 清除外部缓存
 cleanCustomCache     : 清除自定义目录下的文件
 ```
 
-* ### 关闭相关→[CloseUtils.java][close.java]
+* ### 关闭相关 -> [CloseUtils.java][close.java]
 ```
 closeIO       : 关闭IO
 closeIOQuietly: 安静关闭IO
 ```
 
-* ### 转换相关→[ConvertUtils.java][convert.java]→[Test][convert.test]
+* ### 转换相关 -> [ConvertUtils.java][convert.java] -> [Test][convert.test]
 ```
 bytes2HexString, hexString2Bytes        : byteArr与hexString互转
 chars2Bytes, bytes2Chars                : charArr与byteArr互转
@@ -142,12 +142,12 @@ dp2px, px2dp                            : dp与px互转
 sp2px, px2sp                            : sp与px互转
 ```
 
-* ### 崩溃相关→[CrashUtils.java][crash.java]
+* ### 崩溃相关 -> [CrashUtils.java][crash.java]
 ```
 init: 初始化
 ```
 
-* ### 设备相关→[DeviceUtils.java][device.java]→[Demo][device.demo]
+* ### 设备相关 -> [DeviceUtils.java][device.java] -> [Demo][device.demo]
 ```
 isDeviceRooted   : 判断设备是否rooted
 getSDKVersion    : 获取设备系统版本号
@@ -161,13 +161,13 @@ reboot2Recovery  : 重启到recovery
 reboot2Bootloader: 重启到bootloader
 ```
 
-* ### 判空相关→[EmptyUtils.java][empty.java]→[Test][empty.test]
+* ### 判空相关 -> [EmptyUtils.java][empty.java] -> [Test][empty.test]
 ```
 isEmpty   : 判断对象是否为空
 isNotEmpty: 判断对象是否非空
 ```
 
-* ### 编码解码相关→[EncodeUtils.java][encode.java]→[Test][encode.test]
+* ### 编码解码相关 -> [EncodeUtils.java][encode.java] -> [Test][encode.test]
 ```
 urlEncode          : URL编码
 urlDecode          : URL解码
@@ -179,7 +179,7 @@ htmlEncode         : Html编码
 htmlDecode         : Html解码
 ```
 
-* ### 加密解密相关→[EncryptUtils.java][encrypt.java]→[Test][encrypt.test]
+* ### 加密解密相关 -> [EncryptUtils.java][encrypt.java] -> [Test][encrypt.test]
 ```
 encryptMD2, encryptMD2ToString                        : MD2加密
 encryptMD5, encryptMD5ToString                        : MD5加密
@@ -203,7 +203,7 @@ encryptAES, encryptAES2HexString, encryptAES2Base64   : AES加密
 decryptAES, decryptHexStringAES, decryptBase64AES     : AES解密
 ```
 
-* ### 文件相关→[FileIOUtils.java][fileio.java]→[Test][fileio.test]
+* ### 文件相关 -> [FileIOUtils.java][fileio.java] -> [Test][fileio.test]
 ```
 writeFileFromIS            : 将输入流写入文件
 writeFileFromBytesByStream : 将字节数组写入文件
@@ -218,7 +218,7 @@ readFile2BytesByMap        : 读取文件到字节数组中
 setBufferSize              : 设置缓冲区尺寸
 ```
 
-* ### 文件相关→[FileUtils.java][file.java]→[Test][file.test]
+* ### 文件相关 -> [FileUtils.java][file.java] -> [Test][file.test]
 ```
 getFileByPath             : 根据文件路径获取文件
 isFileExists              : 判断文件是否存在
@@ -254,7 +254,7 @@ getFileNameNoExtension    : 根据全路径获取文件名不带拓展名
 getFileExtension          : 根据全路径获取文件拓展名
 ```
 
-* ### Fragment相关→[FragmentUtils.java][fragment.java]→[Demo][fragment.demo]
+* ### Fragment 相关 -> [FragmentUtils.java][fragment.java] -> [Demo][fragment.demo]
 ```
 add                   : 新增fragment
 show                  : 显示fragment
@@ -282,7 +282,7 @@ setBackgroundResource : 设置背景资源
 setBackground         : 设置背景
 ```
 
-* ### 图片相关→[ImageUtils.java][image.java]→[Demo][image.demo]
+* ### 图片相关 -> [ImageUtils.java][image.java] -> [Demo][image.demo]
 ```
 bitmap2Bytes, bytes2Bitmap      : bitmap与byteArr互转
 drawable2Bitmap, bitmap2Drawable: drawable与bitmap互转
@@ -314,7 +314,7 @@ compressByQuality               : 按质量压缩
 compressBySampleSize            : 按采样大小压缩
 ```
 
-* ### 意图相关→[IntentUtils.java][intent.java]
+* ### 意图相关 -> [IntentUtils.java][intent.java]
 ```
 getInstallAppIntent        : 获取安装App（支持6.0）的意图
 getUninstallAppIntent      : 获取卸载App的意图
@@ -327,7 +327,7 @@ getShutdownIntent          : 获取关机的意图
 getCaptureIntent           : 获取拍照的意图
 ```
 
-* ### 键盘相关→[KeyboardUtils.java][keyboard.java]→[Demo][keyboard.demo]
+* ### 键盘相关 -> [KeyboardUtils.java][keyboard.java] -> [Demo][keyboard.demo]
 ```
 showSoftInput               : 动态显示软键盘
 hideSoftInput               : 动态隐藏软键盘
@@ -335,7 +335,7 @@ toggleSoftInput             : 切换键盘显示与否状态
 clickBlankArea2HideSoftInput: 点击屏幕空白区域隐藏软键盘
 ```
 
-* ### 日志相关→[LogUtils.java][log.java]→[Demo][log.demo]
+* ### 日志相关 -> [LogUtils.java][log.java] -> [Demo][log.demo]
 ```
 getConfig               : 获取log配置
 Config.setLogSwitch     : 设置log总开关
@@ -349,18 +349,24 @@ Config.setBorderSwitch  : 设置log边框开关
 Config.setConsoleFilter : 设置log控制台过滤器
 Config.setFileFilter    : 设置log文件过滤器
 Config.setStackDeep     : 设置log栈深度
-v                       : Verbose日志
-d                       : Debug日志
-i                       : Info日志
-w                       : Warn日志
-e                       : Error日志
-a                       : Assert日志
+v                       : tag为类名的Verbose日志
+vTag                    : 自定义tag的Verbose日志
+d                       : tag为类名的Debug日志
+dTag                    : 自定义tag的Debug日志
+i                       : tag为类名的Info日志
+iTag                    : 自定义tag的Info日志
+w                       : tag为类名的Warn日志
+wTag                    : 自定义tag的Warn日志
+e                       : tag为类名的Error日志
+eTag                    : 自定义tag的Error日志
+a                       : tag为类名的Assert日志
+aTag                    : 自定义tag的Assert日志
 file                    : log到文件
 json                    : log字符串之json
 xml                     : log字符串之xml
 ```
 
-* ### 网络相关→[NetworkUtils.java][network.java]→[Demo][network.demo]
+* ### 网络相关 -> [NetworkUtils.java][network.java] -> [Demo][network.demo]
 ```
 openWirelessSettings  : 打开网络设置界面
 isConnected           : 判断网络是否连接
@@ -378,7 +384,7 @@ getIPAddress          : 获取IP地址
 getDomainAddress      : 获取域名ip地址
 ```
 
-* ### 手机相关→[PhoneUtils.java][phone.java]→[Demo][phone.demo]
+* ### 手机相关 -> [PhoneUtils.java][phone.java] -> [Demo][phone.demo]
 ```
 isPhone            : 判断设备是否是手机
 getIMEI            : 获取IMEI码
@@ -397,14 +403,14 @@ getContactNum      : 打开手机联系人界面点击联系人后便获取该�
 getAllSMS          : 获取手机短信并保存到xml中
 ```
 
-* ### 进程相关→[ProcessUtils.java][process.java]→[Demo][process.demo]
+* ### 进程相关 -> [ProcessUtils.java][process.java] -> [Demo][process.demo]
 ```
 getForegroundProcessName  : 获取前台线程包名
 killAllBackgroundProcesses: 杀死所有的后台服务进程
 killBackgroundProcesses   : 杀死后台服务进程
 ```
 
-* ### 正则相关→[RegexUtils.java][regex.java]→[Test][regex.test]
+* ### 正则相关 -> [RegexUtils.java][regex.java] -> [Test][regex.test]
 ```
 isMobileSimple : 验证手机号（简单）
 isMobileExact  : 验证手机号（精确）
@@ -424,7 +430,7 @@ getReplaceFirst: 替换正则匹配的第一部分
 getReplaceAll  : 替换所有正则匹配的部分
 ```
 
-* ### 屏幕相关→[ScreenUtils.java][screen.java]
+* ### 屏幕相关 -> [ScreenUtils.java][screen.java]
 ```
 getScreenWidth     : 获取屏幕的宽度（单位：px）
 getScreenHeight    : 获取屏幕的高度（单位：px）
@@ -443,13 +449,13 @@ getSleepDuration   : 获取进入休眠时长
 isTablet           : 判断是否是平板
 ```
 
-* ### SD卡相关→[SDCardUtils.java][sdcard.java]→[Demo][sdcard.demo]
+* ### SD 卡相关 -> [SDCardUtils.java][sdcard.java] -> [Demo][sdcard.demo]
 ```
 isSDCardEnable: 判断SD卡是否可用
 getSDCardPaths: 获取SD卡路径
 ```
 
-* ### 服务相关→[ServiceUtils.java][service.java]
+* ### 服务相关 -> [ServiceUtils.java][service.java]
 ```
 getAllRunningService: 获取所有运行的服务
 startService        : 启动服务
@@ -459,12 +465,12 @@ unbindService       : 解绑服务
 isServiceRunning    : 判断服务是否运行
 ```
 
-* ### Shell相关→[ShellUtils.java][shell.java]
+* ### Shell 相关 -> [ShellUtils.java][shell.java]
 ```
 execCmd: 是否是在root下执行命令
 ```
 
-* ### 尺寸相关→[SizeUtils.java][size.java]
+* ### 尺寸相关 -> [SizeUtils.java][size.java]
 ```
 dp2px, px2dp     : dp与px转换
 sp2px, px2sp     : sp与px转换
@@ -475,7 +481,7 @@ getMeasuredWidth : 获取测量视图宽度
 getMeasuredHeight: 获取测量视图高度
 ```
 
-* ### Snackbar相关→[SnackbarUtils.java][snackbar.java]→[Demo][snackbar.demo]
+* ### Snackbar 相关 -> [SnackbarUtils.java][snackbar.java] -> [Demo][snackbar.demo]
 ```
 with           : 设置snackbar依赖view
 setMessage     : 设置消息
@@ -494,7 +500,7 @@ getView        : 获取snackbar视图
 addView        : 添加snackbar视图
 ```
 
-* ### SpannableString相关→[SpanUtils.java][span.java]→[Demo][span.demo]
+* ### SpannableString 相关 -> [SpanUtils.java][span.java] -> [Demo][span.demo]
 ```
 setFlag           : 设置标识
 setForegroundColor: 设置前景色
@@ -530,7 +536,7 @@ appendSpace       : 追加空白
 create            : 创建样式字符串
 ```
 
-* ### SP相关→[SPUtils.java][sp.java]→[Test][sp.test]
+* ### SP 相关 -> [SPUtils.java][sp.java] -> [Test][sp.test]
 ```
 getInstance: 获取SP实例
 put        : SP中写入数据
@@ -545,7 +551,7 @@ remove     : SP中移除该key
 clear      : SP中清除所有数据
 ```
 
-* ### 字符串相关→[StringUtils.java][string.java]→[Test][string.test]
+* ### 字符串相关 -> [StringUtils.java][string.java] -> [Test][string.test]
 ```
 isEmpty         : 判断字符串是否为null或长度为0
 isTrimEmpty     : 判断字符串是否为null或全为空格
@@ -561,7 +567,7 @@ toDBC           : 转化为半角字符
 toSBC           : 转化为全角字符
 ```
 
-* ### 时间相关→[TimeUtils.java][time.java]→[Test][time.test]
+* ### 时间相关 -> [TimeUtils.java][time.java] -> [Test][time.test]
 ```
 millis2String           : 将时间戳转为时间字符串
 string2Millis           : 将时间字符串转为时间戳
@@ -594,7 +600,7 @@ getChineseZodiac        : 获取生肖
 getZodiac               : 获取星座
 ```
 
-* ### 吐司相关→[ToastUtils.java][toast.java]→[Demo][toast.demo]
+* ### 吐司相关 -> [ToastUtils.java][toast.java] -> [Demo][toast.demo]
 ```
 setGravity     : 设置吐司位置
 setBgColor     : 设置背景颜色
@@ -607,7 +613,7 @@ showCustomLong : 显示长时自定义吐司
 cancel         : 取消吐司显示
 ```
 
-* ### 压缩相关→[ZipUtils.java][zip.java]→[Test][zip.test]
+* ### 压缩相关 -> [ZipUtils.java][zip.java] -> [Test][zip.test]
 ```
 zipFile           : 压缩文件
 unzipFile         : 解压文件

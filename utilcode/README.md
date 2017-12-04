@@ -1,8 +1,8 @@
 ## Download
 
 Gradle:
-``` groovy
-compile 'com.blankj:utilcode:1.9.6'
+```groovy
+compile 'com.blankj:utilcode:1.9.10'
 ```
 
 
@@ -25,7 +25,7 @@ Utils.init(application);
 
 ## APIs
 
-* ### About Activity→[ActivityUtils.java][activity.java]→[Demo][activity.demo]
+* ### About Activity -> [ActivityUtils.java][activity.java] -> [Demo][activity.demo]
 ```
 isActivityExists
 startActivity
@@ -41,7 +41,7 @@ finishOtherActivitiesExceptNewest
 finishAllActivities
 ```
 
-* ### About App→[AppUtils.java][app.java]→[Demo][app.demo]
+* ### About App -> [AppUtils.java][app.java] -> [Demo][app.demo]
 ```
 isInstallApp
 installApp
@@ -69,7 +69,7 @@ getAppsInfo
 cleanAppData
 ```
 
-* ### About Bar→[BarUtils.java][bar.java]→[Demo][bar.demo]
+* ### About Bar -> [BarUtils.java][bar.java] -> [Demo][bar.demo]
 ```
 getStatusBarHeight
 addMarginTopEqualStatusBarHeight
@@ -85,7 +85,7 @@ getNavBarHeight
 hideNavBar
 ```
 
-* ### About Cache→[CacheUtils.java][cache.java]→[Test][cache.test]
+* ### About Cache -> [CacheUtils.java][cache.java] -> [Test][cache.test]
 ```
 getInstance
 put
@@ -103,7 +103,7 @@ remove
 clear
 ```
 
-* ### About Clean→[CleanUtils.java][clean.java]→[Demo][clean.demo]
+* ### About Clean -> [CleanUtils.java][clean.java] -> [Demo][clean.demo]
 ```
 cleanInternalCache
 cleanInternalFiles
@@ -114,13 +114,13 @@ cleanExternalCache
 cleanCustomCache
 ```
 
-* ### About Close→[CloseUtils.java][close.java]
+* ### About Close -> [CloseUtils.java][close.java]
 ```
 closeIO
 closeIOQuietly
 ```
 
-* ### About Convert→[ConvertUtils.java][convert.java]→[Test][convert.test]
+* ### About Convert -> [ConvertUtils.java][convert.java] -> [Test][convert.test]
 ```
 bytes2HexString, hexString2Bytes
 chars2Bytes, bytes2Chars
@@ -142,12 +142,12 @@ dp2px, px2dp
 sp2px, px2sp
 ```
 
-* ### About Crash→[CrashUtils.java][crash.java]
+* ### About Crash -> [CrashUtils.java][crash.java]
 ```
 init
 ```
 
-* ### About Device→[DeviceUtils.java][device.java]→[Demo][device.demo]
+* ### About Device -> [DeviceUtils.java][device.java] -> [Demo][device.demo]
 ```
 isDeviceRooted
 getSDKVersion
@@ -161,13 +161,13 @@ reboot2Recovery
 reboot2Bootloader
 ```
 
-* ### About Empty→[EmptyUtils.java][empty.java]→[Test][empty.test]
+* ### About Empty -> [EmptyUtils.java][empty.java] -> [Test][empty.test]
 ```
 isEmpty
 isNotEmpty
 ```
 
-* ### About Encode→[EncodeUtils.java][encode.java]→[Test][encode.test]
+* ### About Encode -> [EncodeUtils.java][encode.java] -> [Test][encode.test]
 ```
 urlEncode
 urlDecode
@@ -179,7 +179,7 @@ htmlEncode
 htmlDecode
 ```
 
-* ### About Encrypt→[EncryptUtils.java][encrypt.java]→[Test][encrypt.test]
+* ### About Encrypt -> [EncryptUtils.java][encrypt.java] -> [Test][encrypt.test]
 ```
 encryptMD2, encryptMD2ToString
 encryptMD5, encryptMD5ToString
@@ -203,7 +203,7 @@ encryptAES, encryptAES2HexString, encryptAES2Base64
 decryptAES, decryptHexStringAES, decryptBase64AES
 ```
 
-* ### About FileIO→[FileIOUtils.java][fileio.java]→[Test][fileio.test]
+* ### About FileIO -> [FileIOUtils.java][fileio.java] -> [Test][fileio.test]
 ```
 writeFileFromIS
 writeFileFromBytesByStream
@@ -218,7 +218,7 @@ readFile2BytesByMap
 setBufferSize
 ```
 
-* ### About File→[FileUtils.java][file.java]→[Test][file.test]
+* ### About File -> [FileUtils.java][file.java] -> [Test][file.test]
 ```
 getFileByPath
 isFileExists
@@ -254,7 +254,7 @@ getFileNameNoExtension
 getFileExtension
 ```
 
-* ### About Fragment→[FragmentUtils.java][fragment.java]→[Demo][fragment.demo]
+* ### About Fragment -> [FragmentUtils.java][fragment.java] -> [Demo][fragment.demo]
 ```
 add
 show
@@ -282,7 +282,7 @@ setBackgroundResource
 setBackground
 ```
 
-* ### About Image→[ImageUtils.java][image.java]→[Demo][image.demo]
+* ### About Image -> [ImageUtils.java][image.java] -> [Demo][image.demo]
 ```
 bitmap2Bytes, bytes2Bitmap
 drawable2Bitmap, bitmap2Drawable
@@ -314,7 +314,7 @@ compressByQuality
 compressBySampleSize
 ```
 
-* ### About Intent→[IntentUtils.java][intent.java]
+* ### About Intent -> [IntentUtils.java][intent.java]
 ```
 getInstallAppIntent
 getUninstallAppIntent
@@ -327,7 +327,7 @@ getShutdownIntent
 getCaptureIntent
 ```
 
-* ### About Keyboard→[KeyboardUtils.java][keyboard.java]→[Demo][keyboard.demo]
+* ### About Keyboard -> [KeyboardUtils.java][keyboard.java] -> [Demo][keyboard.demo]
 ```
 showSoftInput
 hideSoftInput
@@ -335,7 +335,7 @@ toggleSoftInput
 clickBlankArea2HideSoftInput
 ```
 
-* ### About Log→[LogUtils.java][log.java]→[Demo][log.demo]
+* ### About Log -> [LogUtils.java][log.java] -> [Demo][log.demo]
 ```
 getConfig
 Config.setLogSwitch
@@ -350,17 +350,23 @@ Config.setConsoleFilter
 Config.setFileFilter
 Config.setStackDeep
 v
+vTag
 d
+dTag
 i
+iTag
 w
+wTag
 e
+eTag
 a
+aTag
 file
 json
 xml
 ```
 
-* ### About Network→[NetworkUtils.java][network.java]→[Demo][network.demo]
+* ### About Network -> [NetworkUtils.java][network.java] -> [Demo][network.demo]
 ```
 openWirelessSettings
 isConnected
@@ -378,7 +384,7 @@ getIPAddress
 getDomainAddress
 ```
 
-* ### About Phone→[PhoneUtils.java][phone.java]→[Demo][phone.demo]
+* ### About Phone -> [PhoneUtils.java][phone.java] -> [Demo][phone.demo]
 ```
 isPhone
 getIMEI
@@ -397,14 +403,14 @@ getContactNum
 getAllSMS
 ```
 
-* ### About Process→[ProcessUtils.java][process.java]→[Demo][process.demo]
+* ### About Process -> [ProcessUtils.java][process.java] -> [Demo][process.demo]
 ```
 getForegroundProcessName
 killAllBackgroundProcesses
 killBackgroundProcesses
 ```
 
-* ### About Regex→[RegexUtils.java][regex.java]→[Test][regex.test]
+* ### About Regex -> [RegexUtils.java][regex.java] -> [Test][regex.test]
 ```
 isMobileSimple
 isMobileExact
@@ -424,7 +430,7 @@ getReplaceFirst
 getReplaceAll
 ```
 
-* ### About Screen→[ScreenUtils.java][screen.java]
+* ### About Screen -> [ScreenUtils.java][screen.java]
 ```
 getScreenWidth
 getScreenHeight
@@ -443,13 +449,13 @@ getSleepDuration
 isTablet
 ```
 
-* ### About SDCard→[SDCardUtils.java][sdcard.java]→[Demo][sdcard.demo]
+* ### About SDCard -> [SDCardUtils.java][sdcard.java] -> [Demo][sdcard.demo]
 ```
 isSDCardEnable
 getSDCardPaths
 ```
 
-* ### About Service→[ServiceUtils.java][service.java]
+* ### About Service -> [ServiceUtils.java][service.java]
 ```
 getAllRunningService
 startService
@@ -459,12 +465,12 @@ unbindService
 isServiceRunning
 ```
 
-* ### About Shell→[ShellUtils.java][shell.java]
+* ### About Shell -> [ShellUtils.java][shell.java]
 ```
 execCmd
 ```
 
-* ### About Size→[SizeUtils.java][size.java]
+* ### About Size -> [SizeUtils.java][size.java]
 ```
 dp2px, px2dp
 sp2px, px2sp
@@ -475,7 +481,7 @@ getMeasuredWidth
 getMeasuredHeight
 ```
 
-* ### About Snackbar→[SnackbarUtils.java][snackbar.java]→[Demo][snackbar.demo]
+* ### About Snackbar -> [SnackbarUtils.java][snackbar.java] -> [Demo][snackbar.demo]
 ```
 with
 setMessage
@@ -494,7 +500,7 @@ getView
 addView
 ```
 
-* ### About Span→[SpanUtils.java][span.java]→[Demo][span.demo]
+* ### About Span -> [SpanUtils.java][span.java] -> [Demo][span.demo]
 ```
 setFlag
 setForegroundColor
@@ -530,7 +536,7 @@ appendSpace
 create
 ```
 
-* ### About SP→[SPUtils.java][sp.java]→[Test][sp.test]
+* ### About SP -> [SPUtils.java][sp.java] -> [Test][sp.test]
 ```
 getInstance
 put
@@ -545,7 +551,7 @@ remove
 clear
 ```
 
-* ### About String→[StringUtils.java][string.java]→[Test][string.test]
+* ### About String -> [StringUtils.java][string.java] -> [Test][string.test]
 ```
 isEmpty
 isTrimEmpty
@@ -561,7 +567,7 @@ toDBC
 toSBC
 ```
 
-* ### About Time→[TimeUtils.java][time.java]→[Test][time.test]
+* ### About Time -> [TimeUtils.java][time.java] -> [Test][time.test]
 ```
 millis2String
 string2Millis
@@ -594,7 +600,7 @@ getChineseZodiac
 getZodiac
 ```
 
-* ### About Toast→[ToastUtils.java][toast.java]→[Demo][toast.demo]
+* ### About Toast -> [ToastUtils.java][toast.java] -> [Demo][toast.demo]
 ```
 setGravity
 setBgColor
@@ -607,7 +613,7 @@ showCustomLong
 cancel
 ```
 
-* ### About Zip→[ZipUtils.java][zip.java]→[Test][zip.test]
+* ### About Zip -> [ZipUtils.java][zip.java] -> [Test][zip.test]
 ```
 zipFile
 unzipFile
