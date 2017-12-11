@@ -9,6 +9,47 @@
 
 pthread_t newTid;
 
+
+int inOrNot(int poly_sides, float *poly_X, float *poly_Y, float x, float y)
+{
+    int i, j;
+    j = poly_sides-1;
+    int res = 0;
+    for (i = 0; i<poly_sides; i++)
+    {
+        if((poly_Y[i]<y && poly_Y[j]>=y || poly_Y[j]<y && poly_Y[i]>=y) && (poly_X[i]<=x || poly_X[j]<=x))
+        {
+            float fx = (poly_X[i] + (y-poly_Y[i])/(poly_Y[j]-poly_Y[i])*(poly_X[j]-poly_X[i]));
+            res ^= ( fx< x);
+        }
+        j=i;
+    }
+    return res;
+}
+
+int testInOrNot()
+{
+    int poly_sides = 5;                 // 多边形顶点数
+    float poly_X[5] = {1, 1, 3, 4, 3};  // 多边形各顶点的X轴坐标
+    float poly_Y[5] = {1, 2, 3, 2, 1};  // 多边形各顶点的Y轴坐标
+    float x = 2;                      // 测试点的X轴坐标
+    float y = 2;                        // 测试点的Y轴坐标
+
+    int ret;
+    ret = inOrNot(poly_sides, poly_X, poly_Y, x, y);
+
+    if(1 == ret)
+    {
+        LOGE("the point (%f, %f), in the poly\n", x, y);
+    }
+    else
+    {
+        LOGE("the point (%f, %f), not in the poly\n", x, y);
+    }
+
+    return 0;
+}
+
 void *ThreadRunnable(void *arg) {
    LOG(WARNING) << "Run in another thread";
    return ((void *)0);
@@ -100,6 +141,7 @@ GLuint CreateSimpleTexture2D( )
 //
 int Init ( ESContext *esContext )
 {
+    testInOrNot();
     logtest();
    UserData *userData = (UserData *)esContext->userData;
    char vShaderStr[] =
