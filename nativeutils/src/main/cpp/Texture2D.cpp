@@ -17,10 +17,10 @@ int inOrNot(int poly_sides, float *poly_X, float *poly_Y, float x, float y)
     int res = 0;
     for (i = 0; i<poly_sides; i++)
     {
-        if((poly_Y[i]<y && poly_Y[j]>=y || poly_Y[j]<y && poly_Y[i]>=y) && (poly_X[i]<=x || poly_X[j]<=x))
+        if(( poly_Y[i] >= y != poly_Y[j] >= y) )
         {
             float fx = (poly_X[i] + (y-poly_Y[i])/(poly_Y[j]-poly_Y[i])*(poly_X[j]-poly_X[i]));
-            res ^= ( fx< x);
+            res ^= ( fx > x);
         }
         j=i;
     }
