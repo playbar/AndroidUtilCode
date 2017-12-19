@@ -135,6 +135,8 @@ GLuint CreateSimpleTexture2D( )
 
 }
 
+class Base {};
+class Derived: public Base {};
 
 ///
 // Initialize the shader and program object
