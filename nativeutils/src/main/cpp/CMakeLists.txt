@@ -2,6 +2,12 @@ cmake_minimum_required(VERSION 3.4.1)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11 -frtti")
 
+   find_program(npm_EXECUTABLE NAMES npm)
+    if (NOT npm_EXECUTABLE)
+        message(FATAL_ERROR "Could not find npm")
+    endif()
+    message(STATUS  ${npm_EXECUTABLE})
+
 add_library(native-activity SHARED
             android_native_app_glue.c
             esShader.cpp
