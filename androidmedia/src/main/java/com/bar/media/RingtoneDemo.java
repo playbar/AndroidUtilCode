@@ -17,11 +17,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * author 岳明明
- * description
- * Created by yzm on 2017/7/31.
- */
 
 public class RingtoneDemo extends Activity {
 

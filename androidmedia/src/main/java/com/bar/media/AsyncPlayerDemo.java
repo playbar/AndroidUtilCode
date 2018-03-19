@@ -16,16 +16,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-/**
- * author 岳明明
- * description
- * Created by yzm on 2017/7/31.
- */
 
 public class AsyncPlayerDemo extends Activity {
 
 
-    @BindView(R.id.iv_async_play)
+//    @BindView(R.id.iv_async_play)
     ImageView mIvPlay;
 
     private boolean isPlay = false ;
@@ -36,6 +31,7 @@ public class AsyncPlayerDemo extends Activity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.asyncplayer_demo_layout);
+        mIvPlay = (ImageView) findViewById(R.id.iv_async_play);
         ButterKnife.bind(this);
         init();
     }
@@ -44,7 +40,7 @@ public class AsyncPlayerDemo extends Activity {
         mPlayer = new AsyncPlayer("play");
     }
 
-    @OnClick(R.id.iv_async_play)
+//    @OnClick(R.id.iv_async_play)
     public void onClick(){
         if(isPlay){
             isPlay = false ;

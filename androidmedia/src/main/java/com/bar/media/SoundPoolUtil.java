@@ -14,9 +14,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * author 岳明明
  * description 如果能将播放、暂停、停止、均通过“name”实现，会更清晰，后续再解决这个问题
- * Created by yzm on 2017/8/1.
  */
 
 public class SoundPoolUtil {

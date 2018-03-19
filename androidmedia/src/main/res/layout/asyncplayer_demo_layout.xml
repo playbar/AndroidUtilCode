@@ -30,6 +30,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@mipmap/play"
+            android:onClick="onClick"
             android:layout_centerInParent="true"/>
 
 </RelativeLayout>

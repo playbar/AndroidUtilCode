@@ -31,11 +31,6 @@ import io.reactivex.schedulers.Schedulers;
 
 import static com.bar.media.R.id.iv_play;
 
-/**
- * author 岳明明
- * description
- * Created by yzm on 2017/7/31.
- */
 
 public class MediaPlayerDemo extends Activity {
 

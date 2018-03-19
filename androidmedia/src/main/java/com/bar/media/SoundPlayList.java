@@ -11,11 +11,6 @@ import android.widget.ArrayAdapter;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * author 岳明明
- * description
- * Created by yzm on 2017/7/31.
- */
 
 public class SoundPlayList extends ListActivity implements AdapterView.OnItemClickListener {
     @Override
