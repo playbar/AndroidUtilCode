@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="Levell.jet"
+            android:textColor="#ff0000"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:id="@+id/textView"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="音频来自：sdk sample JetBoy"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="23dp"/>
+
+        <ImageView
+            android:id="@+id/iv_jet_play"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/play"
+            android:layout_centerInParent="true"/>
+
+        <Button
+            android:id="@+id/bt_play_seg1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="播放片段1"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/textView"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="19dp"/>
+
+        <Button
+            android:id="@+id/bt_play_seg2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="播放片段2重复3次"
+            android:layout_alignBaseline="@+id/bt_play_seg1"
+            android:layout_alignBottom="@+id/bt_play_seg1"
+            android:layout_toEndOf="@+id/bt_play_seg1"/>
+
+</RelativeLayout>

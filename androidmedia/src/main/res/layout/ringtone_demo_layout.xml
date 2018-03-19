@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="系统音乐"
+            android:textColor="#ff0000"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:id="@+id/textView"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="电话铃声/提示音/闹钟"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="23dp"
+            android:id="@+id/textView4"/>
+
+
+
+        <Button
+            android:id="@+id/bt_mr_ringtone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="播放来电铃声"
+            android:layout_alignParentBottom="true"
+            android:layout_toStartOf="@+id/textView"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="19dp"/>
+
+        <Button
+            android:id="@+id/bt_sj_ringtone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="随机播放一个电话铃声"
+            android:layout_alignBaseline="@+id/bt_mr_ringtone"
+            android:layout_alignBottom="@+id/bt_mr_ringtone"
+            android:layout_alignEnd="@+id/textView4"/>
+
+        <Button
+            android:id="@+id/bt_set_sj_to_mr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置来电铃声"
+            android:layout_alignBaseline="@+id/bt_sj_ringtone"
+            android:layout_alignBottom="@+id/bt_sj_ringtone"
+            android:layout_toEndOf="@+id/bt_sj_ringtone"
+            android:layout_marginStart="17dp"/>
+
+</RelativeLayout>

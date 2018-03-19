@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="SoundPool"
+            android:textColor="#ff0000"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:id="@+id/textView"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="播放单个/组合音效"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="23dp"
+            android:id="@+id/textView4"/>
+
+
+
+        <Button
+            android:id="@+id/bt_sdp_cat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="单个音效"
+            android:layout_below="@+id/textView4"
+            android:layout_alignStart="@+id/bt_sdp_brdacat"
+            android:layout_marginTop="79dp"/>
+
+        <Button
+            android:id="@+id/bt_sdp_autopuase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="暂停所有"
+            android:layout_alignBaseline="@+id/bt_sdp_cat"
+            android:layout_alignBottom="@+id/bt_sdp_cat"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_marginEnd="19dp"/>
+
+        <Button
+            android:id="@+id/bt_sdp_brdacat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="组合音效"
+            android:layout_below="@+id/bt_sdp_cat"
+            android:layout_toStartOf="@+id/textView4"
+            android:layout_marginTop="17dp"/>
+
+        <Button
+            android:id="@+id/bt_sdp_autoresume"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="恢复所有"
+            android:layout_alignBottom="@+id/bt_sdp_brdacat"
+            android:layout_alignStart="@+id/bt_sdp_autopuase"/>
+
+        <Button
+            android:id="@+id/bt_sdp_stopall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="停止所有"
+            android:layout_alignBaseline="@+id/bt_sdp_autopuase"
+            android:layout_alignBottom="@+id/bt_sdp_autopuase"
+            android:layout_toEndOf="@+id/textView4"/>
+
+        <Button
+            android:id="@+id/bt_sdp_topzho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="停止组合中的鸟叫"
+            android:layout_marginTop="14dp"
+            android:layout_below="@+id/bt_sdp_cat"
+            android:layout_alignStart="@+id/bt_sdp_stopall"/>
+
+</RelativeLayout>

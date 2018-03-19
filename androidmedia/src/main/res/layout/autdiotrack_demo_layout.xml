@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="WAV(无损)/PCM(无压缩)"
+            android:textColor="#ff0000"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:id="@+id/textView"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="她说-张碧晨"
+            android:layout_below="@+id/textView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="23dp"
+            android:id="@+id/textView2"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="33.1MB"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="19dp"
+            android:id="@+id/textView3"/>
+
+        <ImageView
+            android:id="@+id/iv_autdiotrack_play"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/play"
+            android:layout_centerInParent="true"/>
+
+        <Button
+            android:id="@+id/bt_bs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="慢速播放"
+            android:layout_marginBottom="14dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="11dp"/>
+
+        <Button
+            android:id="@+id/bt_ks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="快速播放"
+            android:layout_alignBaseline="@+id/bt_hf"
+            android:layout_alignBottom="@+id/bt_hf"
+            android:layout_toEndOf="@+id/bt_hf"/>
+
+        <Button
+            android:id="@+id/bt_hf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="正常播放 "
+            android:layout_alignBaseline="@+id/bt_bs"
+            android:layout_alignBottom="@+id/bt_bs"
+            android:layout_toEndOf="@+id/bt_bs"/>
+
+</RelativeLayout>
