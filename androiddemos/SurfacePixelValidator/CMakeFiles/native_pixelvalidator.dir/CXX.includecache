@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/luocj/works/source/AndroidDebugDemos/D10-SurfacePixelValidator/src/main/cpp/SurfacePixelValidator.cpp
+SurfacePixelValidator.h
+/home/luocj/works/source/AndroidDebugDemos/D10-SurfacePixelValidator/src/main/cpp/SurfacePixelValidator.h
+
+/home/luocj/works/source/AndroidDebugDemos/D10-SurfacePixelValidator/src/main/cpp/SurfacePixelValidator.h
+cpp/RenderScript.h
+-
+

@@ -1,6 +1,11 @@
 include ':androidmedia'
+
+include ':demosapp'
+project(':demosapp').projectDir = new File("./androiddemos/app")
+
 //include ':app'
 //include ':utilcode'
 //include ':subutil'
 //include ':androidboost'
 //include ':nativeutils'
+

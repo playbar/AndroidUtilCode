@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Notification</string>
+    <string name="status_communication_summary">使当前系统处于通话状态，默认仅可调节通话音量。</string>
+    <string name="status_communication_speaker_summary">使当前系统处于免提通话状态，会导致连接耳机时仍声音外放。</string>
+</resources>

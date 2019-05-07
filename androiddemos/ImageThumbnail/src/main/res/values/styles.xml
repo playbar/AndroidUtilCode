@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Material.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="FileIconStyle">
+        <item name="android:layout_height">@dimen/file_icon_height</item>
+        <item name="android:layout_width">@dimen/file_icon_width</item>
+        <item name="android:layout_gravity">center|left</item>
+        <item name="android:gravity">center</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+</resources>

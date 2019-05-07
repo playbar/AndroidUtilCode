@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">DialogInputTextview</string>
+    <string name="save_dialog_title">Save recording?</string>
+    <string name="keep_original_file">Keep original file</string>
+    <string name="button_ok">OK</string>
+    <string name="button_cancel">Cancel</string>
+    <!-- Dialog "Save" button to save the FM recording [CHAR LIMIT=20] -->
+    <string name="btn_save_recording">Save</string>
+    <!-- Dialog "Discard" button to discard the FM recording [CHAR LIMIT=20] -->
+    <string name="btn_discard_recording">Discard</string>
+    <!-- EditText hint for save recording dialog [CHAR LIMIT=50] -->
+    <string name="edit_recording_name_hint">Type file name here</string>
+    <string name="input_length_overstep">Input reached the max length</string>
+    <string name="recording_name_notnull">Name can\'t be null</string>
+    <string name="recording_name_illegal">Name contains illegal characters\n\\&#058;&#042;&#063;&#034;&#060;&#062;&#124;&#047;</string>
+    <string name="already_exists">already exists</string>
+    <string name="record_start">Start</string>
+    <string name="minutes_label">M</string>
+    <!-- It means "seconds" that shown in record screen [CHAR LIMIT=2] -->
+    <string name="seconds_label">S</string>
+    <!-- The default number for record screen. It will show "00M 00S" [CHAR LIMIT=2] -->
+    <string name="timer_default">00</string>
+    <string name="stop_record">STOP RECORDING</string>
+</resources>

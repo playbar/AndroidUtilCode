@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ResourceLoader</string>
+    <string name="total_info">Silence sounds and turn off hints %1$sexcept for the alarms</string>
+    <string name="total_info_sub"></string>
+</resources>

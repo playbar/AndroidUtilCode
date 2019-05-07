@@ -1,0 +1,3 @@
+/home/luocj/works/source/AndroidDebugDemos/D10-SurfacePixelValidator/CMakeFiles/rebuild_cache.dir
+/home/luocj/works/source/AndroidDebugDemos/D10-SurfacePixelValidator/CMakeFiles/edit_cache.dir
+/home/luocj/works/source/AndroidDebugDemos/D10-SurfacePixelValidator/CMakeFiles/native_pixelvalidator.dir

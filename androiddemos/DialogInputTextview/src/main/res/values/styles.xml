@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppThemeDialog" parent="Theme.AppCompat.Light.Dialog">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="LightTheme" parent="@android:style/Theme.Material.Light">
+        <item name="android:textColorPrimary">@color/theme_title_color</item>
+        <item name="android:colorPrimaryDark">@color/theme_primarydark_color</item>
+        <item name="android:colorPrimary">@color/theme_primary_color</item>
+        <item name="android:actionModeStyle">@style/Gray.ActionMode</item>
+        <item name="android:windowBackground">@color/white_color</item>
+        <item name="android:windowNoTitle">false</item>
+    </style>
+    <style name="Gray.ActionMode" parent="@android:style/Widget.Material.ActionBar">
+        <item name="android:background">@color/action_mode_bar_color</item>
+    </style>
+</resources>
