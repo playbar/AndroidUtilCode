@@ -1,8 +1,5 @@
 cmake_minimum_required(VERSION 3.4.1)
 
-add_library(native_activity_glue STATIC
-            ${ANDROID_NDK}/sources/android/native_app_glue/android_native_app_glue.c )
-
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11  -Werror -D VK_USE_PLATFORM_ANDROID_KHR")
 
 set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -u ANativeActivity_onCreate")
@@ -142,6 +139,7 @@ target_include_directories(jpeg PRIVATE
 
 add_library( jpg_codec
              SHARED
+             src/main/cpp/android_native_app_glue.c
              src/main/cpp/JpgCodecNativeActivity.cpp
              src/main/cpp/JpegTest.cpp
              src/main/cpp/utils.cpp )
@@ -152,7 +150,6 @@ target_include_directories( jpg_codec PRIVATE
              jpeg/libjpeg-turbo/simd )
 
 target_link_libraries( jpg_codec
-                       native_activity_glue
                        android
                        jpeg
                        log )
