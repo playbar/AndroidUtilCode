@@ -6,7 +6,9 @@ project(':demosapp').projectDir = new File("./androiddemos/app")
 include ':deomjpgcodes'
 project(':deomjpgcodes').projectDir = new File("./androiddemos/Codec-JPGCodec")
 
-//include ':app'
+include ':swigtest'
+project(':swigtest').projectDir = new File("./swigtest/test3")
+
 //include ':utilcode'
 //include ':subutil'
 //include ':androidboost'
